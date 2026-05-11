@@ -481,6 +481,7 @@ impl Client {
         if let Some(auth) = self.auth.as_ref() {
             match auth {
                 Auth::Basic(u, p) => req.basic_auth(u, p.as_ref()),
+                Auth::Bearer(t) => req.bearer_auth(t),
             }
         } else {
             req
